@@ -104,7 +104,7 @@ for (key of Object.keys(fpDataSourceMap)){
 finalHash = finalHash + (getCanvasFingerprint());
 finalHash = getHash(finalHash).toString();
 
-window.location.replace("http://iskander-sanchez-rola.com/testing?inhouse="+nortonATInstalled+"&fp="+finalHash);
+window.location.replace("http://iskander-sanchez-rola.com/leadgen?inhouse="+nortonATInstalled+"&fp="+finalHash);
 
 
     
