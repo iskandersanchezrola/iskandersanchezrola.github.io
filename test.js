@@ -1,7 +1,7 @@
 
 // Checking inHouse solutions
-let inHouseATT = false;
-let nortonATInstalled = (typeof screen.original_availWidth != 'undefined').toString();
+let inHouseATT = 'false';
+let nortonATInstalled = (typeof screen.original_availWidth != 'undefined');
 let avastATInstalled = false;
 let avastUA = false; let avastPL = false;
 const uaCheck = ["Herring", "Config", "Trailer", "OpenWave", "AtContent", "LikeWise", "Unique", "Agency", "Viewer",];
@@ -23,7 +23,7 @@ if (avastUA==true & avastPL==true){
     avastATInstalled=true;
 }
 if (nortonATInstalled==true || avastATInstalled==true){
-    inHouseATT = true;
+    inHouseATT = 'true';
 }
 
 let finalHash = "";
