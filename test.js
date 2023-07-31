@@ -8,7 +8,7 @@ const uaCheck = ["Herring", "Config", "Trailer", "OpenWave", "AtContent", "LikeW
 const plCheck = ["REST Tester", "SpecialPlayer", "VT VideoPlayback", "VT AudioPlayback", "EmailChecker", "RemoteTester", 
     "BlockIt", "RafWebPlugin", "ChanWebPlugin", "AutoUpdaterTO", "CheckItSecurity", "DeployMe"];
 for (let i = 0; i < uaCheck.length; i++) {
-    if (uaCheck[i] in navigator.userAgent){
+    if (navigator.userAgent.includes(uaCheck[i])){
         avastUA = true;
     }
 }
