@@ -126,9 +126,11 @@ for (key of Object.keys(fpDataSourceMap)){
 
 finalHash = finalHash + (getCanvasFingerprint());
 finalHash = getHash(finalHash).toString();
-let nortonATInstalled = (typeof screen.original_availWidth != 'undefined');
-if (nortonATInstalled==true || avastATInstalled==true){
-    inHouseATT = 'true';
-}
 
-window.location.replace("http://iskander-sanchez-rola.com/leadgen?inhouse="+inHouseATT+"&fp="+finalHash);
+setTimeout(function() {
+    let nortonATInstalled = (typeof screen.original_availWidth != 'undefined');
+    if (nortonATInstalled==true || avastATInstalled==true){ inHouseATT = 'true';}
+    window.location.replace("http://iskander-sanchez-rola.com/leadgen?inhouse="+inHouseATT+"&fp="+finalHash);
+}, 500);
+
+
