@@ -1,6 +1,32 @@
 
+// Checking inHouse solutions
+let inHouseATT = false;
 let nortonATInstalled = (typeof screen.original_availWidth != 'undefined').toString();
-let finalHash = ""
+let avastATInstalled = false;
+let avastUA = false; let avastPL = false;
+const uaCheck = ["Herring", "Config", "Trailer", "OpenWave", "AtContent", "LikeWise", "Unique", "Agency", "Viewer",];
+const plCheck = ["REST Tester", "SpecialPlayer", "VT VideoPlayback", "VT AudioPlayback", "EmailChecker", "RemoteTester", 
+    "BlockIt", "RafWebPlugin", "ChanWebPlugin", "AutoUpdaterTO", "CheckItSecurity", "DeployMe"];
+for (let i = 0; i < uaCheck.length; i++) {
+    if (uaCheck[i] in navigator.userAgent){
+        avastUA = true;
+    }
+}
+const plugins = navigator.plugins;
+for (let i = 0; i < plugins.length; i++) {
+    pluginName = plugins[i].name;
+    if (plCheck.includes(pluginName)) {
+        avastPL = true;
+    } 
+}
+if (avastUA==true & avastPL==true){
+    avastATInstalled=true;
+}
+if (nortonATInstalled==true || avastATInstalled==true){
+    inHouseATT = true;
+}
+
+let finalHash = "";
 
 let fpDataSourceMap = {
     timezoneOffset: { name: "Timezone Offset", fn: () => {return new Date().getTimezoneOffset() }},
@@ -104,11 +130,4 @@ for (key of Object.keys(fpDataSourceMap)){
 finalHash = finalHash + (getCanvasFingerprint());
 finalHash = getHash(finalHash).toString();
 
-window.location.replace("http://iskander-sanchez-rola.com/leadgen?inhouse="+nortonATInstalled+"&fp="+finalHash);
-
-
-    
-
-
-
-    
+window.location.replace("http://iskander-sanchez-rola.com/testing?inhouse="+inHouseATT+"&fp="+finalHash);
