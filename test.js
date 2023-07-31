@@ -26,8 +26,8 @@ if (nortonATInstalled==true || avastATInstalled==true){
     inHouseATT = 'true';
 }
 
+// Checking AntiFingerprinting
 let finalHash = "";
-
 let fpDataSourceMap = {
     timezoneOffset: { name: "Timezone Offset", fn: () => {return new Date().getTimezoneOffset() }},
     hardwareConcurrency: { name: "HW Concurrency", fn: () => { return navigator.hardwareConcurrency }},
