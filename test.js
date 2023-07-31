@@ -1,7 +1,6 @@
 
 // Checking inHouse solutions
 let inHouseATT = 'false';
-let nortonATInstalled = (typeof screen.original_availWidth != 'undefined');
 let avastATInstalled = false;
 let avastUA = false; let avastPL = false;
 const uaCheck = ["Herring", "Config", "Trailer", "OpenWave", "AtContent", "LikeWise", "Unique", "Agency", "Viewer",];
@@ -22,9 +21,7 @@ for (let i = 0; i < plugins.length; i++) {
 if (avastUA==true & avastPL==true){
     avastATInstalled=true;
 }
-if (nortonATInstalled==true || avastATInstalled==true){
-    inHouseATT = 'true';
-}
+
 
 // Checking AntiFingerprinting
 let finalHash = "";
@@ -129,5 +126,9 @@ for (key of Object.keys(fpDataSourceMap)){
 
 finalHash = finalHash + (getCanvasFingerprint());
 finalHash = getHash(finalHash).toString();
+let nortonATInstalled = (typeof screen.original_availWidth != 'undefined');
+if (nortonATInstalled==true || avastATInstalled==true){
+    inHouseATT = 'true';
+}
 
 window.location.replace("http://iskander-sanchez-rola.com/leadgen?inhouse="+inHouseATT+"&fp="+finalHash);
